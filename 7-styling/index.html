@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Beginner's Guide to React</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      .box {
+        border: 1px solid #333;
+      }
+      .box--large {
+        width: 180px;
+        height: 180px;
+      }
+      .box--medium {
+        width: 120px;
+        height: 120px;
+      }
+      .box--small {
+        width: 60px;
+        height: 60px;
+      }
+    </style>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      function Box({ style, className = "", ...rest }) {
+        return (
+          <div
+            className={`box ${className}`}
+            style={{ paddingLeft: 20, ...style }}
+            {...rest}
+          ></div>
+        );
+      }
+
+      const element = (
+        <div>
+          <Box className="box--small" style={{ backgroundColor: "lightblue" }}>
+            small box
+          </Box>
+          <Box
+            className="box--medium"
+            style={{ backgroundColor: "lightgreen" }}
+          >
+            medium box
+          </Box>
+          <Box
+            className="box--large"
+            style={{ backgroundColor: "lightyellow" }}
+          >
+            large box
+          </Box>
+        </div>
+      );
+      ReactDOM.render(element, rootElement);
+    </script>
+  </body>
+</html>

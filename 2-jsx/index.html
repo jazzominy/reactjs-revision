@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Beginner's Guide to React</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+
+      const props = {
+          className: 'container',
+          children: ['Hello World']
+      }
+
+    //   to default any values, declare them before props
+      const element = <div className='fallback-style' {...props}>This will override whatever is specified in children in props</div>
+      ReactDOM.render(element, rootElement);
+
+      console.log(element);
+    </script>
+  </body>
+</html>

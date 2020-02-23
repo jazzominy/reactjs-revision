@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Beginner's Guide to React</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const hw = props => <div>{props.msg}</div>;
+      const Message = props => <div>{props.msg}</div>;
+      const Wrapper = props => <div>{props.children}</div>;
+      const element = (
+        <div className="container">
+          {hw({ msg: "Hello World" })}
+          {hw({ msg: "c ya" })}
+          {React.createElement(hw, { msg: "Hello World by createElement()" })}
+          <Message
+            {...{ msg: "Hi there from Message component" }}
+            msg="Overwritten msg from Message comp"
+          />
+          <Wrapper>
+            Hello from Wrapper
+            <Message msg="Message from wrapper" />
+          </Wrapper>
+        </div>
+      );
+      ReactDOM.render(element, rootElement);
+    </script>
+  </body>
+</html>
